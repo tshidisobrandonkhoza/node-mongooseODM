@@ -9,14 +9,13 @@ const connect = mongoose.connect(urlDb);
 connect.then(async (db) => {
 
     console.log(`Connected well to Server: ${db}`);
-    let newDish = await Dishes.create({
+
+    await Dishes.create({
         name: 'Pizza',
         description: 'Super Delicious pizza'
-    })
-
-    newDish.then()
-
-     console.log(`Dishes info : ${newDish}`);
+    }).then(results => {
+        console.log(`Dishes info : ${results}`);
+    }).catch(err => console.log(err));
 
 
 }).catch(err => console.log(`Connection Error: ${err}`)); 
