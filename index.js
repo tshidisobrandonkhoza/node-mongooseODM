@@ -15,14 +15,33 @@ connect.then(async (db) => {
         description: 'Super Delicious pizza'
     }).then(results => {
         console.log(`Dishes info : ${results}`);
-        return Dishes.find({});
-    }).then(results => {
+        return Dishes.findByIdAndUpdate(results._id, {
+            $set: {
+                description: 'Updated This Desc',
+            }
+        }, { new: true }).exec();
+
+    }).then(async results => {
         console.log(`Dishes found : ${results}`);
+        results.comments.push({
+            rating: 5,
+            comment: 'Commented',
+            author: 'User1'
+        })
+
+
+        return results.save();
+
+
+
+    }).then(results => {
+        console.log(`Added Comments : ${results}`);
         return Dishes.deleteMany({});
+
     }).then(results => {
         console.log(`Removed : ${results}`);
 
-    }).then(results => {
+    }).then(() => {
         return mongoose.connection.close();
     }).catch(err => console.log(err));
 
