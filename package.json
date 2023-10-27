@@ -1,0 +1,23 @@
+{
+  "name": "mongooseodm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tshidisobrandonkhoza/node-mongooseODM.git"
+  },
+  "author": "Tshidiso Brandon Khoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tshidisobrandonkhoza/node-mongooseODM/issues"
+  },
+  "homepage": "https://github.com/tshidisobrandonkhoza/node-mongooseODM#readme",
+  "dependencies": {
+    "mongoose": "^7.6.3"
+  }
+}
