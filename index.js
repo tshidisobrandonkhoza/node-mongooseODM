@@ -15,6 +15,15 @@ connect.then(async (db) => {
         description: 'Super Delicious pizza'
     }).then(results => {
         console.log(`Dishes info : ${results}`);
+        return Dishes.find({});
+    }).then(results => {
+        console.log(`Dishes found : ${results}`);
+        return Dishes.deleteMany({});
+    }).then(results => {
+        console.log(`Removed : ${results}`);
+
+    }).then(results => {
+        return mongoose.connection.close();
     }).catch(err => console.log(err));
 
 
